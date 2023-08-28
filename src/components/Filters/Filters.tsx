@@ -36,7 +36,7 @@ const Filters: React.FC = () => {
 
   return (
     <Box bgcolor="background.secondary" sx={{ pb: 3 }}>
-      <Stack direction="row" justifyContent="left" spacing={3} pb={2}>
+      <Stack direction="row" justifyContent="left" flexWrap="wrap" spacing={2} pb={2} useFlexGap>
         <FormControl color="primary" size="small" sx={{ minWidth: '150px' }}>
           <InputLabel id="platform-label">Platform</InputLabel>
           <Select
