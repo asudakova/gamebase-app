@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
-import GamePage from './pages/GamePage/GamePage';
+import GamePage from './pages/GameInfoPage/GameInfoPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import { CssBaseline } from '@mui/material';
 import Header from './components/Header/Header';

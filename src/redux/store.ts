@@ -1,6 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import gamesReducer from './games/slice';
+import gameInfoReducer from './gameInfo/slice';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  gamesReducer,
+  gameInfoReducer,
+});
 
 export const setupStore = () => {
   return configureStore({

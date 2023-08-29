@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Divider,
   Box,
@@ -9,30 +9,32 @@ import {
   MenuItem,
   SelectChangeEvent,
 } from '@mui/material';
+import { useAppDispatch } from '../../redux/typingReduxHooks';
 
 import { platforms, genres, sortings } from '../../utils/constants';
+import { fetchGames } from '../../redux/games/actions';
 
 const Filters: React.FC = () => {
+  const dispatch = useAppDispatch();
+
   const [platform, setPlatform] = useState('');
-  const [genre, setGenre] = useState<string[]>([]);
+  const [genre, setGenre] = useState('');
   const [sortBy, setSortBy] = useState('');
 
   const handleChangePlatform = (event: SelectChangeEvent) => {
     setPlatform(event.target.value as string);
   };
-  const handleChangeGenre = (event: SelectChangeEvent<typeof genre>) => {
-    const {
-      target: { value },
-    } = event;
-    setGenre(typeof value === 'string' ? value.split(',') : value);
+  const handleChangeGenre = (event: SelectChangeEvent) => {
+    setGenre(event.target.value as string);
   };
   const handleChangeSortBy = (event: SelectChangeEvent) => {
     setSortBy(event.target.value as string);
   };
 
-  // useEffect(() => {
-  //   console.log({ platform, genre, sortBy });
-  // }, [platform, genre, sortBy]);
+  useEffect(() => {
+    console.log({ platform, genre, sortBy });
+    dispatch(fetchGames(platform, genre, sortBy));
+  }, [platform, genre, sortBy]);
 
   return (
     <Box bgcolor="background.secondary" sx={{ pb: 3 }}>
@@ -96,7 +98,6 @@ const Filters: React.FC = () => {
             id="genre-select"
             value={genre}
             label="genre"
-            multiple
             onChange={handleChangeGenre}
             sx={{
               borderRadius: '12px',
