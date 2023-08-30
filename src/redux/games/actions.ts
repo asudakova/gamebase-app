@@ -2,12 +2,11 @@ import { AppDispatch } from '../store';
 import { gamesSlice } from './slice';
 import axios from 'axios';
 import { FetchGamesParamsType } from '../../utils/types';
+import { BASE_URL_GAMES, RAPIDAPI_HOST } from '../../utils/constants';
 
 export const fetchGames =
   (platform: string, genre: string, sortby: string) => async (dispatch: AppDispatch) => {
     dispatch(gamesSlice.actions.gamesFetching());
-
-    const url = 'https://free-to-play-games-database.p.rapidapi.com/api/games';
 
     const params: FetchGamesParamsType = {
       platform: platform || 'all',
@@ -19,12 +18,12 @@ export const fetchGames =
     }
 
     const headers = {
-      'X-RapidAPI-Key': 'f1c14ceb6fmsh60dec2b060eac23p187361jsn335f366df162',
-      'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
+      'X-RapidAPI-Key': import.meta.env.VITE_RAPID_API_KEY,
+      'X-RapidAPI-Host': RAPIDAPI_HOST,
     };
 
     try {
-      const response = await axios.get(url, { params, headers });
+      const response = await axios.get(BASE_URL_GAMES, { params, headers });
       dispatch(gamesSlice.actions.gamesFetchingSuccess(response.data));
     } catch (error) {
       if (error instanceof Error) {

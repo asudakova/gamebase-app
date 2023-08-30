@@ -1,3 +1,7 @@
+export const BASE_URL_GAMES = 'https://free-to-play-games-database.p.rapidapi.com/api/games';
+export const BASE_URL_INFO = 'https://free-to-play-games-database.p.rapidapi.com/api/game';
+export const RAPIDAPI_HOST = 'free-to-play-games-database.p.rapidapi.com';
+
 export const platforms = [
   {
     id: 1,
