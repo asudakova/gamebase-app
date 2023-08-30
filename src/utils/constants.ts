@@ -23,51 +23,56 @@ export const platforms = [
 export const genres = [
   {
     id: 1,
+    value: 'all',
+    label: 'All genres',
+  },
+  {
+    id: 2,
     value: 'mmo',
     label: 'MMO',
   },
   {
-    id: 2,
+    id: 3,
     value: 'mmorpg',
     label: 'MMORPG',
   },
   {
-    id: 3,
+    id: 4,
     value: 'shooter',
     label: 'Shooter',
   },
   {
-    id: 4,
+    id: 5,
     value: 'strategy',
     label: 'Strategy',
   },
   {
-    id: 5,
+    id: 6,
     value: 'moba',
     label: 'Moba',
   },
   {
-    id: 6,
+    id: 7,
     value: 'card',
     label: 'Card games',
   },
   {
-    id: 7,
+    id: 8,
     value: 'racing',
     label: 'Racing',
   },
   {
-    id: 8,
+    id: 9,
     value: 'sports',
     label: 'Sports',
   },
   {
-    id: 9,
+    id: 10,
     value: 'social',
     label: 'Social',
   },
   {
-    id: 10,
+    id: 11,
     value: 'fighting',
     label: 'Fighting',
   },

@@ -17,9 +17,9 @@ import { fetchGames } from '../../redux/games/actions';
 const Filters: React.FC = () => {
   const dispatch = useAppDispatch();
 
-  const [platform, setPlatform] = useState('');
-  const [genre, setGenre] = useState('');
-  const [sortBy, setSortBy] = useState('');
+  const [platform, setPlatform] = useState('all');
+  const [genre, setGenre] = useState('all');
+  const [sortBy, setSortBy] = useState('relevance');
 
   const handleChangePlatform = (event: SelectChangeEvent) => {
     setPlatform(event.target.value as string);
@@ -66,32 +66,6 @@ const Filters: React.FC = () => {
           </Select>
         </FormControl>
         <FormControl color="primary" size="small" sx={{ minWidth: '150px' }}>
-          <InputLabel id="sorting-label">Sort by</InputLabel>
-          <Select
-            labelId="sorting-label"
-            id="sorting-select"
-            value={sortBy}
-            label="sorting"
-            onChange={handleChangeSortBy}
-            sx={{
-              borderRadius: '12px',
-              color: 'text.primary',
-              '.MuiOutlinedInput-notchedOutline': {
-                borderColor: 'text.secondary',
-              },
-              '.MuiSvgIcon-root ': {
-                fill: 'white !important',
-              },
-            }}
-          >
-            {sortings.map((type) => (
-              <MenuItem key={type.id} value={type.value}>
-                {type.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <FormControl color="primary" size="small" sx={{ minWidth: '150px' }}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
             labelId="genre-label"
@@ -111,6 +85,32 @@ const Filters: React.FC = () => {
             }}
           >
             {genres.map((type) => (
+              <MenuItem key={type.id} value={type.value}>
+                {type.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <FormControl color="primary" size="small" sx={{ minWidth: '150px' }}>
+          <InputLabel id="sorting-label">Sort by</InputLabel>
+          <Select
+            labelId="sorting-label"
+            id="sorting-select"
+            value={sortBy}
+            label="sorting"
+            onChange={handleChangeSortBy}
+            sx={{
+              borderRadius: '12px',
+              color: 'text.primary',
+              '.MuiOutlinedInput-notchedOutline': {
+                borderColor: 'text.secondary',
+              },
+              '.MuiSvgIcon-root ': {
+                fill: 'white !important',
+              },
+            }}
+          >
+            {sortings.map((type) => (
               <MenuItem key={type.id} value={type.value}>
                 {type.label}
               </MenuItem>

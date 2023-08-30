@@ -9,11 +9,11 @@ export const fetchGames =
     dispatch(gamesSlice.actions.gamesFetching());
 
     const params: FetchGamesParamsType = {
-      platform: platform || 'all',
-      'sort-by': sortby || 'relevance',
+      platform: platform,
+      'sort-by': sortby,
     };
 
-    if (genre !== '') {
+    if (genre !== 'all') {
       params['category'] = genre;
     }
 
