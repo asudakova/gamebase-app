@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import GamePage from './pages/GameInfoPage/GameInfoPage';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import { CssBaseline } from '@mui/material';
+import { CssBaseline, Stack } from '@mui/material';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -28,13 +28,15 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Header />
-      <Routes>
-        <Route path="/" element={<MainPage />} />
-        <Route path="/game/:gameId" element={<GamePage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
+      <Stack direction="column" minHeight='100vh'>
+        <Header />
+        <Routes>
+          <Route path="/" element={<MainPage />} />
+          <Route path="/game/:gameId" element={<GamePage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer />
+      </Stack>
     </ThemeProvider>
   );
 };

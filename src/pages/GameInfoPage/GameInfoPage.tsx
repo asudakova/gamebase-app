@@ -16,9 +16,9 @@ const GameInfoPage: React.FC = () => {
   const requestParams = { id: Number(gameId) };
 
   return (
-    <Container sx={{ py: 4, minHeight: 'calc(100vh - 132px)' }} maxWidth="lg">
+    <Container sx={{ py: 4 }} maxWidth="lg">
       <Link to="/">
-        <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ mb: '20px' }}>
+        <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ mb: '20px', borderRadius: '12px' }}>
           Back
         </Button>
       </Link>

@@ -46,11 +46,11 @@ const FailedLoading: React.FC<FetchGamesParamsType | FetchInfoGameParamsType | {
             You have {attempts} more attempts to try
           </Typography>
           {attempts === 0 ? (
-            <Button variant="contained" onClick={handleTryFetchClick} disabled>
+            <Button variant="contained" onClick={handleTryFetchClick} disabled sx={{ borderRadius: '12px' }}>
               Try
             </Button>
           ) : (
-            <Button variant="contained" onClick={handleTryFetchClick}>
+            <Button variant="contained" onClick={handleTryFetchClick} sx={{ borderRadius: '12px' }}>
               Try
             </Button>
           )}

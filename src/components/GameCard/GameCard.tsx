@@ -16,10 +16,10 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
   };
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} onClick={handleGameCardClick}>
+    <Grid item xs={12} sm={6} md={4} lg={3} onClick={handleGameCardClick} sx={{ verticalAlign: 'bottom' }}>
       <Card
         sx={{
-          height: '100%',
+          //height: '100%',
           display: 'flex',
           flexDirection: 'column',
           borderRadius: '12px',
@@ -30,6 +30,7 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
             component="div"
             sx={{
               pt: '50%',
+              height: 'auto',
               borderRadius: '12px 12px 0 0',
             }}
             image={pic}
@@ -40,11 +41,14 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
               variant="h6"
               component="h2"
               color="text.primary"
-              sx={{ fontWeight: 'bold' }}
+              whiteSpace="nowrap"
+              sx={{ fontWeight: 'bold', overflow: 'hidden', textOverflow: 'ellipsis' }}
             >
               {title}
             </Typography>
-            <Typography color="text.secondary">{publisher || '-'}</Typography>
+            <Typography color="text.secondary" sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              {publisher || '-'}
+            </Typography>
             <Stack direction="row" spacing={2} justifyContent="space-between">
               <Typography color="text.secondary">{timeConvertor(date) || '-'}</Typography>
               <Typography color="background.paper" bgcolor="text.secondary" borderRadius="12px" px="5px">

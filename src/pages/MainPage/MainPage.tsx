@@ -16,7 +16,7 @@ const MainPage: React.FC = () => {
     <main>
       <MainTitle />
       <Box bgcolor="background.default">
-        <Container sx={{ py: { md: '20px', xs: '10px' } }} maxWidth="lg">
+        <Container sx={{ py: { md: '20px', xs: '15px' } }} maxWidth="lg">
           <Filters />
           {isLoadingError ? (
             <FailedLoading {...requestParams} />
