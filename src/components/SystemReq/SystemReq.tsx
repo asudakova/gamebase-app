@@ -22,26 +22,6 @@ const SystemReq: React.FC<SystemReqType> = ({ ...requirements }) => {
         <Grid item xs={6} md={4}>
           <Stack>
             <Typography fontSize={20} color="text.secondary">
-              Storage
-            </Typography>
-            <Typography fontSize={20} color="text.primary">
-              {requirements?.storage || '-'}
-            </Typography>
-          </Stack>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <Stack>
-            <Typography fontSize={20} color="text.secondary">
-              Memory
-            </Typography>
-            <Typography fontSize={20} color="text.primary">
-              {requirements?.memory || '-'}
-            </Typography>
-          </Stack>
-        </Grid>
-        <Grid item xs={6} md={4}>
-          <Stack>
-            <Typography fontSize={20} color="text.secondary">
               Processor
             </Typography>
             <Typography fontSize={20} color="text.primary">
@@ -56,6 +36,26 @@ const SystemReq: React.FC<SystemReqType> = ({ ...requirements }) => {
             </Typography>
             <Typography fontSize={20} color="text.primary">
               {requirements?.graphics || '-'}
+            </Typography>
+          </Stack>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <Stack>
+            <Typography fontSize={20} color="text.secondary">
+              Storage
+            </Typography>
+            <Typography fontSize={20} color="text.primary">
+              {requirements?.storage || '-'}
+            </Typography>
+          </Stack>
+        </Grid>
+        <Grid item xs={6} md={4}>
+          <Stack>
+            <Typography fontSize={20} color="text.secondary">
+              Memory
+            </Typography>
+            <Typography fontSize={20} color="text.primary">
+              {requirements?.memory || '-'}
             </Typography>
           </Stack>
         </Grid>

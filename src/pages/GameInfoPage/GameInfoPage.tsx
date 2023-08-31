@@ -57,7 +57,7 @@ const GameInfoPage: React.FC = () => {
               <SystemReq {...gameInfo?.minimum_system_requirements} />
             </Grid>
             <Carousel
-              sx={{ mt: '30px', width: { sm: '533px', xs: '100%' }, height: '341px', textAlign: 'center' }}
+              sx={{ mt: '30px', width: { sm: '533px', xs: '100%' }, height: { sm: '341px', xs: '100%' }, textAlign: 'center' }}
             >
               {gameInfo?.screenshots?.map((item) => (
                 <CarouselItem key={item?.id} item={item} />
