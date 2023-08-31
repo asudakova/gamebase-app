@@ -32,7 +32,6 @@ const Filters: React.FC = () => {
   };
 
   useEffect(() => {
-    console.log({ platform, genre, sortBy });
     dispatch(fetchGames(platform, genre, sortBy));
   }, [platform, genre, sortBy]);
 

@@ -1,12 +1,14 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../redux/typingReduxHooks';
-import { Container, Grid, Box, CircularProgress, Button } from '@mui/material';
+import { Container, Grid, Box, CircularProgress, Button, Paper } from '@mui/material';
 import GameAdditionalInfo from '../../components/GameAdditionalInfo/GameAdditionalInfo';
 import SystemReq from '../../components/SystemReq/SystemReq';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
 import FailedLoading from '../../components/FailedLoading/FailedLoading';
+import Carousel from 'react-material-ui-carousel';
+import CarouselItem from '../../components/CarouselItem/CarouselItem';
 
 const GameInfoPage: React.FC = () => {
   const { gameId } = useParams();
@@ -54,6 +56,13 @@ const GameInfoPage: React.FC = () => {
             <Grid item xs={12} md={12}>
               <SystemReq {...gameInfo?.minimum_system_requirements} />
             </Grid>
+            <Carousel
+              sx={{ mt: '30px', width: { sm: '533px', xs: '100%' }, height: '341px', textAlign: 'center' }}
+            >
+              {gameInfo?.screenshots?.map((item) => (
+                <CarouselItem key={item?.id} item={item} />
+              ))}
+            </Carousel>
           </Grid>
         </Box>
       )}
