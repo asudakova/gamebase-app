@@ -33,11 +33,10 @@ const FoundGames: React.FC = () => {
         ))}
       </Grid>
       <Pagination
-        variant="outlined"
-        shape="rounded"
         count={pagesAmount}
         page={page}
         onChange={handleChange}
+        color="primary"
         sx={{
           mt: '30px',
           '.MuiPagination-ul': {
@@ -45,9 +44,6 @@ const FoundGames: React.FC = () => {
           },
           '.MuiPagination-ul button': {
             fontSize: '16px',
-          },
-          '.css-unqsqn-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected': {
-            bgcolor: '#1976d2',
           },
         }}
       />
