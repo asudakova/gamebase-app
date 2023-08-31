@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Link, Stack, Typography } from '@mui/material';
 import { GameAddInfoPropsType } from '../../utils/types';
+import { timeConvertor } from '../../utils/timeConvertor';
 
 const GameAdditionalInfo: React.FC<GameAddInfoPropsType> = ({
   url,
@@ -49,7 +50,7 @@ const GameAdditionalInfo: React.FC<GameAddInfoPropsType> = ({
               Release date
             </Typography>
             <Typography fontSize={20} color="text.primary">
-              {date || '-'}
+              {timeConvertor(date) || '-'}
             </Typography>
           </Stack>
         </Grid>

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { GameCardTypeProps } from '../../utils/types';
 import { useAppDispatch } from '../../redux/typingReduxHooks';
 import { fetchGameInfo } from '../../redux/gameInfo/actions';
+import { timeConvertor } from '../../utils/timeConvertor';
 
 const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, publisher }) => {
   const navigate = useNavigate();
@@ -43,11 +44,11 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
             >
               {title}
             </Typography>
-            <Typography color="text.secondary">{publisher}</Typography>
+            <Typography color="text.secondary">{publisher || '-'}</Typography>
             <Stack direction="row" spacing={2} justifyContent="space-between">
-              <Typography color="text.secondary">{date}</Typography>
+              <Typography color="text.secondary">{timeConvertor(date) || '-'}</Typography>
               <Typography color="background.paper" bgcolor="text.secondary" borderRadius="12px" px="5px">
-                {genre}
+                {genre || '-'}
               </Typography>
             </Stack>
           </CardContent>
