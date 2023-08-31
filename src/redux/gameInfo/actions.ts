@@ -6,7 +6,7 @@ import { FetchInfoGameParamsType } from '../../utils/types';
 import { setWithTTL, getWithTTL } from '../../utils/localStorageTTL';
 
 export const fetchGameInfo = (gameId: number) => async (dispatch: AppDispatch) => {
-  dispatch(gameInfoSlice.actions.gameInfoFetching);
+  dispatch(gameInfoSlice.actions.gameInfoFetching());
 
   const params: FetchInfoGameParamsType = { id: gameId };
 
