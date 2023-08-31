@@ -21,10 +21,21 @@ export type GameCardType = {
   title: string;
 };
 
-export type initialStateGamesType = {
+export type InitialStateGamesType = {
   foundGames: GameCardType[];
   isLoading: boolean;
-  error: string;
+  isError: boolean;
+  lastParams: FetchGamesParamsType | {};
+};
+
+// export type GamesFetchingErrorType = {
+//   message: string;
+//   lastParams: FetchGamesParamsType;
+// };
+
+export type GameInfoFetchingErrorType = {
+  message: string;
+  lastParams: FetchInfoGameParamsType;
 };
 
 export type SystemReqType = {
@@ -58,10 +69,10 @@ export type GameInfoType = {
   title: string;
 };
 
-export type initialStateGameinfoType = {
+export type InitialStateGameinfoType = {
   info: GameInfoType;
   isLoading: boolean;
-  error: string;
+  isError: boolean;
 };
 
 export type GameAddInfoPropsType = {
@@ -77,4 +88,8 @@ export type FetchGamesParamsType = {
   platform: string;
   'sort-by': string;
   category?: string;
+};
+
+export type FetchInfoGameParamsType = {
+  id: number;
 };

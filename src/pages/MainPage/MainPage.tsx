@@ -4,10 +4,13 @@ import MainTitle from '../../components/MainTitle/MainTitle';
 import GameCard from '../../components/GameCard/GameCard';
 import Filters from '../../components/Filters/Filters';
 import { useAppSelector } from '../../redux/typingReduxHooks';
+import FailedLoading from '../../components/FailedLoading/FailedLoading';
 
 const MainPage: React.FC = () => {
   const currentGames = useAppSelector((state) => state.gamesReducer.foundGames);
   const isGamesLoading = useAppSelector((state) => state.gamesReducer.isLoading);
+  const isLoadingError = useAppSelector((state) => state.gamesReducer.isError);
+  const requestParams = useAppSelector((state) => state.gamesReducer.lastParams);
 
   return (
     <main>
@@ -15,7 +18,9 @@ const MainPage: React.FC = () => {
       <Box bgcolor="background.default">
         <Container sx={{ py: { md: '20px', xs: '10px' } }} maxWidth="lg">
           <Filters />
-          {isGamesLoading ? (
+          {isLoadingError ? (
+            <FailedLoading {...requestParams} />
+          ) : isGamesLoading ? (
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <CircularProgress />
             </Box>

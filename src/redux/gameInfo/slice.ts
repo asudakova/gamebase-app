@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initialStateGameinfoType, IGameInfo } from '../../utils/types';
+import { InitialStateGameinfoType, GameInfoType } from '../../utils/types';
 
-const initialState: initialStateGameinfoType = {
-  info: {} as IGameInfo,
+const initialState: InitialStateGameinfoType = {
+  info: {} as GameInfoType,
   isLoading: false,
-  error: '',
+  isError: false,
 };
 
 export const gameInfoSlice = createSlice({
@@ -14,14 +14,14 @@ export const gameInfoSlice = createSlice({
     gameInfoFetching(state) {
       state.isLoading = true;
     },
-    gameInfoFetchingSuccess(state, action: PayloadAction<IGameInfo>) {
+    gameInfoFetchingSuccess(state, action: PayloadAction<GameInfoType>) {
       state.isLoading = false;
-      state.error = '';
+      state.isError = false;
       state.info = action.payload;
     },
-    gameInfoFetchingError(state, action: PayloadAction<string>) {
+    gameInfoFetchingError(state) {
       state.isLoading = false;
-      state.error = action.payload;
+      state.isError = true;
     },
   },
 });

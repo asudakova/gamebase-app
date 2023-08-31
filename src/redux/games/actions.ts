@@ -23,12 +23,15 @@ export const fetchGames =
     };
 
     try {
-      const response = await axios.get(BASE_URL_GAMES, { params, headers });
+      const response = await axios.get(BASE_URL_GAMES, {
+        params,
+        headers,
+        signal: AbortSignal.timeout(5000),
+      });
       dispatch(gamesSlice.actions.gamesFetchingSuccess(response.data));
     } catch (error) {
       if (error instanceof Error) {
-        console.error(error);
-        dispatch(gamesSlice.actions.placesFetchingError(error.message));
+        dispatch(gamesSlice.actions.gamesFetchingError(params));
       }
     }
   };

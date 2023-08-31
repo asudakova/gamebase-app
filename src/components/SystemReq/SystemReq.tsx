@@ -4,7 +4,6 @@ import { SystemReqType } from '../../utils/types';
 
 const SystemReq: React.FC<SystemReqType> = ({ ...requirements }) => {
   return (
-    //{ xs: 3, sm: 3, md: 3 }
     <>
       <Typography fontSize={24} color="text.primary" sx={{ fontWeight: 'bold' }} mb="20px">
         Minimum System Requirements

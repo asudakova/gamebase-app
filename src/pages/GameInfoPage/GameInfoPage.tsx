@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../redux/typingReduxHooks';
 import { Container, Grid, Box, CircularProgress, Button } from '@mui/material';
@@ -6,20 +6,25 @@ import GameAdditionalInfo from '../../components/GameAdditionalInfo/GameAddition
 import SystemReq from '../../components/SystemReq/SystemReq';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { Link } from 'react-router-dom';
+import FailedLoading from '../../components/FailedLoading/FailedLoading';
 
 const GameInfoPage: React.FC = () => {
   const { gameId } = useParams();
-  const { isLoading, info } = useAppSelector((state) => state.gameInfoReducer);
-
-  useEffect(() => {
-    if (!isLoading) {
-      console.log({ gameId, info });
-    }
-  }, [info]);
+  const isInfoLoading = useAppSelector((state) => state.gameInfoReducer.isLoading);
+  const gameInfo = useAppSelector((state) => state.gameInfoReducer.info);
+  const isLoadingError = useAppSelector((state) => state.gameInfoReducer.isError);
+  const requestParams = { id: Number(gameId) };
 
   return (
-    <Container sx={{ py: 8, minHeight: 'calc(100vh - 132px)' }} maxWidth="lg">
-      {isLoading ? (
+    <Container sx={{ py: 4, minHeight: 'calc(100vh - 132px)' }} maxWidth="lg">
+      <Link to="/">
+        <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ mb: '20px' }}>
+          Back
+        </Button>
+      </Link>
+      {isLoadingError ? (
+        <FailedLoading {...requestParams} />
+      ) : isInfoLoading ? (
         <Box sx={{ display: 'flex', justifyContent: 'center' }}>
           <CircularProgress />
         </Box>
@@ -34,27 +39,22 @@ const GameInfoPage: React.FC = () => {
                   width: '100%',
                   objectFit: 'cover',
                 }}
-                alt={info?.title}
-                src={info?.thumbnail}
+                alt={gameInfo?.title}
+                src={gameInfo?.thumbnail}
               />
             </Grid>
             <GameAdditionalInfo
-              url={info?.game_url}
-              title={info?.title}
-              genre={info?.genre}
-              publisher={info?.publisher}
-              date={info?.release_date}
-              developer={info?.developer}
+              url={gameInfo?.game_url}
+              title={gameInfo?.title}
+              genre={gameInfo?.genre}
+              publisher={gameInfo?.publisher}
+              date={gameInfo?.release_date}
+              developer={gameInfo?.developer}
             />
             <Grid item xs={12} md={12}>
-              <SystemReq {...info?.minimum_system_requirements} />
+              <SystemReq {...gameInfo?.minimum_system_requirements} />
             </Grid>
           </Grid>
-          <Link to="/">
-            <Button variant="outlined" startIcon={<ArrowBackIcon />} sx={{ fontSize: '20px' }}>
-              Back
-            </Button>
-          </Link>
         </Box>
       )}
     </Container>

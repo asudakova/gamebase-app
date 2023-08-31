@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { initialStateGamesType } from '../../utils/types';
+import { InitialStateGamesType, FetchGamesParamsType, GameCardType } from '../../utils/types';
 
-const initialState: initialStateGamesType = {
+const initialState: InitialStateGamesType = {
   foundGames: [],
   isLoading: false,
-  error: '',
+  isError: false,
+  lastParams: {},
 };
 
 export const gamesSlice = createSlice({
@@ -14,14 +15,15 @@ export const gamesSlice = createSlice({
     gamesFetching(state) {
       state.isLoading = true;
     },
-    gamesFetchingSuccess(state, action: PayloadAction<[]>) {
+    gamesFetchingSuccess(state, action: PayloadAction<GameCardType[]>) {
       state.isLoading = false;
-      state.error = '';
+      state.isError = false;
       state.foundGames = action.payload;
     },
-    placesFetchingError(state, action: PayloadAction<string>) {
+    gamesFetchingError(state, action: PayloadAction<FetchGamesParamsType>) {
       state.isLoading = false;
-      state.error = action.payload;
+      state.isError = true;
+      state.lastParams = action.payload;
     },
   },
 });
