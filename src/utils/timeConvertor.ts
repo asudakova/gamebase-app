@@ -1,4 +1,6 @@
 export const timeConvertor = (defaultFormat: string) => {
-  const [year, month, day] = defaultFormat.split('-');
-  return `${day}.${month}.${year}`;
+  if (defaultFormat !== undefined) {
+    const [year, month, day] = defaultFormat.split('-');
+    return `${day}.${month}.${year}`;
+  } else return '-'
 };
