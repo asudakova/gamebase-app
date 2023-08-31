@@ -19,7 +19,6 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
     <Grid item xs={12} sm={6} md={4} lg={3} onClick={handleGameCardClick} sx={{ verticalAlign: 'bottom' }}>
       <Card
         sx={{
-          //height: '100%',
           display: 'flex',
           flexDirection: 'column',
           borderRadius: '12px',

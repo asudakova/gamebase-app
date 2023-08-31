@@ -16,7 +16,6 @@ export const fetchGameInfo = (gameId: number) => async (dispatch: AppDispatch) =
   };
 
   if (getWithTTL(gameId.toString()) !== null) {
-    console.log('from cache');
     dispatch(gameInfoSlice.actions.gameInfoFetchingSuccess(getWithTTL(gameId.toString())));
   } else {
     try {
@@ -26,7 +25,6 @@ export const fetchGameInfo = (gameId: number) => async (dispatch: AppDispatch) =
         signal: AbortSignal.timeout(5000),
       });
       setWithTTL(gameId.toString(), response.data, 300000);
-      console.log('NOT from cache');
       dispatch(gameInfoSlice.actions.gameInfoFetchingSuccess(response.data));
     } catch (error) {
       if (error instanceof Error) {

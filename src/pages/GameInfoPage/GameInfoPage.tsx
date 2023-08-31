@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useAppSelector } from '../../redux/typingReduxHooks';
-import { Container, Grid, Box, CircularProgress, Button, Paper } from '@mui/material';
+import { Container, Grid, Box, CircularProgress, Button } from '@mui/material';
 import GameAdditionalInfo from '../../components/GameAdditionalInfo/GameAdditionalInfo';
 import SystemReq from '../../components/SystemReq/SystemReq';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
