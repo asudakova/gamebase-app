@@ -45,11 +45,15 @@ const GameCard: React.FC<GameCardTypeProps> = ({ id, title, date, genre, pic, pu
             >
               {title}
             </Typography>
-            <Typography color="text.secondary" sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <Typography
+              color="text.secondary"
+              whiteSpace="nowrap"
+              sx={{ overflow: 'hidden', textOverflow: 'ellipsis' }}
+            >
               {publisher || '-'}
             </Typography>
             <Stack direction="row" spacing={2} justifyContent="space-between">
-              <Typography color="text.secondary">{timeConvertor(date) || '-'}</Typography>
+              <Typography color="text.secondary">{date !== undefined ? timeConvertor(date) : '-'}</Typography>
               <Typography color="background.paper" bgcolor="text.secondary" borderRadius="12px" px="5px">
                 {genre || '-'}
               </Typography>

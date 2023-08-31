@@ -28,7 +28,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
       <CssBaseline />
-      <Stack direction="column" minHeight='100vh'>
+      <Stack direction="column" minHeight="100vh">
         <Header />
         <Routes>
           <Route path="/" element={<MainPage />} />

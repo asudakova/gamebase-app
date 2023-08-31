@@ -1,24 +1,24 @@
 export type GameCardTypeProps = {
   id: number;
-  title: string;
-  date: string;
-  genre: string;
-  pic: string;
-  publisher: string;
+  title?: string;
+  date?: string;
+  genre?: string;
+  pic?: string;
+  publisher?: string;
 };
 
 export type GameCardType = {
   id: number;
-  developer: string;
-  freetogame_profile_url: string;
-  game_url: string;
-  genre: string;
-  platform: string;
-  publisher: string;
-  release_date: string;
-  short_descriptions: string;
-  thumbnail: string;
-  title: string;
+  developer?: string;
+  freetogame_profile_url?: string;
+  game_url?: string;
+  genre?: string;
+  platform?: string;
+  publisher?: string;
+  release_date?: string;
+  short_descriptions?: string;
+  thumbnail?: string;
+  title?: string;
 };
 
 export type InitialStateGamesType = {
@@ -28,22 +28,17 @@ export type InitialStateGamesType = {
   lastParams: FetchGamesParamsType | {};
 };
 
-// export type GamesFetchingErrorType = {
-//   message: string;
-//   lastParams: FetchGamesParamsType;
-// };
-
 export type GameInfoFetchingErrorType = {
   message: string;
   lastParams: FetchInfoGameParamsType;
 };
 
 export type SystemReqType = {
-  graphics: string;
-  memory: string;
-  os: string;
-  processor: string;
-  storage: string;
+  graphics?: string;
+  memory?: string;
+  os?: string;
+  processor?: string;
+  storage?: string;
 };
 
 export type ScreenshotsType = {
@@ -53,20 +48,20 @@ export type ScreenshotsType = {
 
 export type GameInfoType = {
   id: number;
-  description: string;
-  developer: string;
-  freetogame_profile_url: string;
-  game_url: string;
-  genre: string;
-  minimum_system_requirements: SystemReqType;
-  platform: string;
-  publisher: string;
-  release_date: string;
-  screenshots: ScreenshotsType[];
-  short_descriptions: string;
-  status: string;
-  thumbnail: string;
-  title: string;
+  description?: string;
+  developer?: string;
+  freetogame_profile_url?: string;
+  game_url?: string;
+  genre?: string;
+  minimum_system_requirements?: SystemReqType;
+  platform?: string;
+  publisher?: string;
+  release_date?: string;
+  screenshots?: ScreenshotsType[];
+  short_descriptions?: string;
+  status?: string;
+  thumbnail?: string;
+  title?: string;
 };
 
 export type InitialStateGameinfoType = {
@@ -76,12 +71,12 @@ export type InitialStateGameinfoType = {
 };
 
 export type GameAddInfoPropsType = {
-  url: string;
-  title: string;
-  genre: string;
-  publisher: string;
-  date: string;
-  developer: string;
+  url?: string;
+  title?: string;
+  genre?: string;
+  publisher?: string;
+  date?: string;
+  developer?: string;
 };
 
 export type FetchGamesParamsType = {

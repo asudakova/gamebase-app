@@ -50,7 +50,7 @@ const GameAdditionalInfo: React.FC<GameAddInfoPropsType> = ({
               Release date
             </Typography>
             <Typography fontSize={20} color="text.primary">
-              {timeConvertor(date)}
+              {date !== undefined ? timeConvertor(date) : '-'}
             </Typography>
           </Stack>
         </Grid>
