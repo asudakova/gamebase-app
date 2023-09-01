@@ -65,3 +65,13 @@
 
 - Для установки зависимостей: `npm ci`
 - Для запуска проекта: `npm start`
+
+---
+
+### Важно
+
+В корневой директории создайте файл .env и поместите туда свой API-ключ, полученный на [сайте](https://rapidapi.com/digiwalls/api/free-to-play-games-database)
+
+```
+VITE_RAPID_API_KEY=yourapikey
+```
